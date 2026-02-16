@@ -6,7 +6,7 @@ import {
   DisconnectReason,
   downloadContentFromMessage,
   areJidsSameUser
-} from "@denzy-offcial/baileys";
+} from "@denzy-official/baileys";
 import { Boom } from "@hapi/boom";
 import { PassThrough } from "stream";
 import readline from "readline";
