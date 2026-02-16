@@ -22,20 +22,20 @@ const listJsFilesRecursively = (directory) => {
 let handler = async (m, { reply }) => {
   try {
     const rootDir = process.cwd();
-    const pluginsDir = path.resolve(rootDir, './plugins');
+    const cmdDir = path.resolve(rootDir, './plugins');
 
-    if (!await fs.pathExists(pluginsDir)) {
+    if (!await fs.pathExists(cmdDir)) {
       return reply('Folder `./plugins/` tidak ditemukan.');
     }
 
-    const files = listJsFilesRecursively(pluginsDir);
+    const files = listJsFilesRecursively(cmdDir);
 
     if (files.length === 0) {
       return reply('Tidak ada plugin yang ditemukan di dalam folder `./plugins/`.');
     }
 
     const fileList = files.map(fullPath => {
-      return `• ${path.relative(pluginsDir, fullPath).replace(/\\/g, '/')}`;
+      return `• ${path.relative(cmdDir, fullPath).replace(/\\/g, '/')}`;
     }).join('\n');
 
     reply(`📦 *Daftar Plugin Terinstal:*\n\n${fileList}`);
