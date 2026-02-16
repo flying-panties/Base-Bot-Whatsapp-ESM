@@ -153,4 +153,4 @@ untuk pairing code, kalian bisa masukin ke dalam `config.js` dan kalian juga bis
 
 
 ## Support
-- [Txra-Dev Owner Sc](Dengan Hidup Kan Star ⭐)
+- Dengan Hidup Kan Star ⭐
