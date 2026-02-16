@@ -1,6 +1,6 @@
 let handler = m => m
 
-handler.before = async function (m, { conn, isBotAdmin }) {
+handler.before = async function (m, { sock, isBotAdmin }) {
     if (m.fromMe || !m.isGroup) return true
 
     const text = (m.text || m.body || m.msg?.text || m.msg?.caption || "").toLowerCase()
@@ -11,7 +11,7 @@ handler.before = async function (m, { conn, isBotAdmin }) {
         
         if (isBotAdmin) {
             try {
-                await conn.sendMessage(m.chat, { delete: m.key })
+                await sock.sendMessage(m.chat, { delete: m.key })
             } catch (err) {
                 console.error(err)
             }
