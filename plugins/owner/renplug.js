@@ -17,13 +17,13 @@ let handler = async (m, { q, reply }) => {
     if (!newPath.endsWith('.js')) newPath += '.js';
 
     const rootDir = process.cwd();
-    const pluginsDir = path.resolve(rootDir, './plugins');
+    const cmdDir = path.resolve(rootDir, './plugins');
     
-    const targetOldPath = path.resolve(pluginsDir, oldPath);
-    const targetNewPath = path.resolve(pluginsDir, newPath);
+    const targetOldPath = path.resolve(cmdDir, oldPath);
+    const targetNewPath = path.resolve(cmdDir, newPath);
 
-    const relOld = path.relative(pluginsDir, targetOldPath);
-    const relNew = path.relative(pluginsDir, targetNewPath);
+    const relOld = path.relative(cmdDir, targetOldPath);
+    const relNew = path.relative(cmdDir, targetNewPath);
 
     if (relOld.startsWith('..') || path.isAbsolute(relOld) || relNew.startsWith('..') || path.isAbsolute(relNew)) {
       return reply('Error: Ilegal path traversal detected.\nAnda hanya boleh memindahkan file di dalam folder `./plugins/`');
