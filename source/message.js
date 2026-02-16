@@ -332,9 +332,9 @@ export default async (sock, m) => {
     const allCommands = [...new Set([...pluginCommands, ...caseCommands])];
 
     if (!allCommands.includes(command)) {
-      const similarities = allCommands.map((plugins) => ({
-        name: plugins,
-        percent: similarityPercent(command, plugins)
+      const similarities = allCommands.map((cmd) => ({
+        name: cmd,
+        percent: similarityPercent(command, cmd)
       }));
 
       const sorted = similarities.sort((a, b) => b.percent - a.percent).slice(0, 3);
@@ -519,7 +519,7 @@ export default async (sock, m) => {
           const cmds = listString.split("\n");
           const total = cmds.length;
 
-          const formattedList = cmds.map((plugins) => `- ${prefix}${plugins}`).join("\n");
+          const formattedList = cmds.map((cmd) => `- ${prefix}${cmd}`).join("\n");
           const replyText = `*--- LIST CASE ---*\n\n${formattedList}\n\n*Total: ${total} Case*`;
 
           reply(replyText.trim());
