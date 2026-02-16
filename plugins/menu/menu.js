@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-let handler = async (m, { conn }) => {
+let handler = async (m, { sock }) => {
   const baseDir = "./plugins";
   const folders = fs.existsSync(baseDir) ? fs.readdirSync(baseDir).filter((x) => fs.statSync(path.join(baseDir, x)).isDirectory()) : [];
 
@@ -52,7 +52,7 @@ let handler = async (m, { conn }) => {
     }
   }
 
-  await conn.sendMessage(
+  await sock.sendMessage(
     m.chat,
     {
       text: lines.join("\n").trim(),
