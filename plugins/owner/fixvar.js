@@ -18,11 +18,11 @@ let handler = async (m, { q, reply }) => {
     if (!fullPath.endsWith('.js')) fullPath += '.js';
 
     const rootDir = process.cwd();
-    const pluginsDir = path.resolve(rootDir, './plugins');
+    const cmdDir = path.resolve(rootDir, './plugins');
     
-    const targetPath = path.resolve(pluginsDir, fullPath);
+    const targetPath = path.resolve(cmdDir, fullPath);
 
-    const relativePath = path.relative(pluginsDir, targetPath);
+    const relativePath = path.relative(cmdDir, targetPath);
     if (relativePath.startsWith('..') || path.isAbsolute(relativePath)) {
       return reply('Error: Ilegal path traversal detected.\nAnda hanya boleh mengedit file di dalam folder `./plugins/`');
     }
@@ -45,7 +45,7 @@ let handler = async (m, { q, reply }) => {
         if (!replacedWords.includes(varName)) {
             replacedWords.push(varName);
         }
-        newContent = newContent.replace(regex, 'conn');
+        newContent = newContent.replace(regex, 'sock');
       }
     }
 
@@ -55,7 +55,7 @@ let handler = async (m, { q, reply }) => {
 
     await fs.writeFile(targetPath, newContent);
 
-    reply(`✅ Berhasil mengganti ${totalReplacements} kata (untuk: '${replacedWords.join(', ')}') menjadi 'conn' di:\n${fullPath}\n\nPlugin akan di-reload (hot-reload) dalam beberapa detik.`);
+    reply(`✅ Berhasil mengganti ${totalReplacements} kata (untuk: '${replacedWords.join(', ')}') menjadi 'sock' di:\n${fullPath}\n\nPlugin akan di-reload (hot-reload) dalam beberapa detik.`);
 
   } catch (e) {
     console.error(e);
