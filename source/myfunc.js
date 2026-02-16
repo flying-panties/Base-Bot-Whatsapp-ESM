@@ -7,7 +7,7 @@ import {
   generateWAMessage,
   areJidsSameUser,
   downloadContentFromMessage
-} from "@denzy-offcial/baileys";
+} from "@denzy-official/baileys";
 import axios from "axios";
 import fs from "fs";
 import fetch from "node-fetch";
