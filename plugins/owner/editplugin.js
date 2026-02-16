@@ -18,11 +18,11 @@ let handler = async (m, { q, reply, quoted }) => {
     if (!codeContent) return reply('Kode plugin tidak ditemukan.');
 
     const rootDir = process.cwd();
-    const pluginsDir = path.resolve(rootDir, './plugins');
+    const cmdDir = path.resolve(rootDir, './plugins');
     
-    const targetPath = path.resolve(pluginsDir, fullPath);
+    const targetPath = path.resolve(cmdDir, fullPath);
 
-    const relativePath = path.relative(pluginsDir, targetPath);
+    const relativePath = path.relative(cmdDir, targetPath);
     if (relativePath.startsWith('..') || path.isAbsolute(relativePath)) {
       return reply('Error: Ilegal path traversal detected.\nAnda hanya boleh mengedit file di dalam folder `./plugins/`');
     }
