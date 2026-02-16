@@ -9,7 +9,7 @@ import {
   areJidsSameUser,
   getContentType,
   downloadContentFromMessage
-} from "@denzy-offcial/baileys";
+} from "@denzy-official/baileyss";
 import fs from "fs-extra";
 import util from "util";
 import chalk from "chalk";
