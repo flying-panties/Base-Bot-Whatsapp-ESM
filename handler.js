@@ -60,14 +60,14 @@ const x = {
       }
     }
 
-    const plugins = String(plug?.command || "").toLowerCase();
-    if (!plugins) return false;
+    const cmd = String(plug?.command || "").toLowerCase();
+    if (!cmd) return false;
 
     const isOwner = global.owner.includes(plug?.sender?.split("@")[0]) || global.owner.includes(plug?.sender);
     const isGroup = m.key.remoteJid.endsWith("@g.us");
 
     for (const plugin of plugins) {
-      const matched = (Array.isArray(plugin.command) ? plugin.command : []).some(c => String(c).toLowerCase() === plugins);
+      const matched = (Array.isArray(plugin.command) ? plugin.command : []).some(c => String(c).toLowerCase() === cmd);
       if (!matched) continue;
 
       if (plugin.owner && !isOwner) return m.reply(global.mess.owner);
