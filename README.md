@@ -136,8 +136,8 @@ watchFile(file, () => {
 
 clone repository
 ```text
-git clone https://github.com/Alifatahfauzi/Simple-bot
-cd simple
+git clone https://github.com/flying-panties/Base-Bot-Whatsapp-ESM.git
+cd Base-Bot-Whatsapp-ESM
 ```
 
 install modules
@@ -153,4 +153,4 @@ untuk pairing code, kalian bisa masukin ke dalam `config.js` dan kalian juga bis
 
 
 ## Support
-- [Txra-Dev Owner Sc] (Dengan Hidup Kan Star ⭐)
+- [Txra-Dev Owner Sc](Dengan Hidup Kan Star ⭐)
