@@ -170,7 +170,7 @@ export default async (sock, m) => {
               title: `${global.namebotz}`,
               body: `Are you Reddy?`,
               thumbnail: fs.readFileSync("./settings/image/image.jpg"),
-              sourceUrl: "https://t.me/FauziAlifatah"
+              sourceUrl: "https://t.me/txradev"
             }
           }
         },
